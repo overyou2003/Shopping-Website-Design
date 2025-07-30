@@ -9,6 +9,8 @@
 .container {
     max-width: 1140px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .overlay {
@@ -207,6 +209,7 @@ section {
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
     grid-gap: 10px;
+    text-align: left;
 }
 
 .client-title h3 {
@@ -217,6 +220,76 @@ section {
 }
 
 .client-desc {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     color: rgb(141, 145, 145);
+}
+
+.client-pic {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.client-pic img {
+    width: 70px;
+    height: 70px; 
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 1rem;
+}
+
+.newslatter {
+    background-image: url(https://images.unsplash.com/photo-1567707268516-4c22fd592e90?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    text-align: center;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+    color: white;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newslatter-title h3 {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.newslatter-desc {
+    margin-top: 10px;
+    margin-bottom: 25px;
+
+}
+
+.newslatter-button {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.newslatter-button input {
+    padding: 7px;
+    border-radius: 7px;
+    border: none;
+    width: 300px;
+}
+
+.newslatter-button button {
+    padding: 7px;
+    border-radius: 7px;
+    border: none;
+    width: 150px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    background-color: brown;
+
+}
+
+.newslatter-con {
+    width: fit-content;
+    position: relative;
 }
