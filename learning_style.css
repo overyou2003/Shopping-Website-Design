@@ -14,7 +14,7 @@
 .overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* ความมืด ปรับได้ */
+    background-color: rgba(0, 0, 0, 0.75); /* ความมืด ปรับได้ */
     z-index: 1;
 }
 
@@ -61,7 +61,7 @@ nav a {
 }
 
 .header-info p {
-    font-weight: lighter;
+    font-weight: 200;
     margin-top: 10px;
 }
 
@@ -126,7 +126,7 @@ section {
 }
 
 .pricing {
-    background-color: rgb(96, 161, 235);
+    background-color: brown; 
     color: white;
     padding: 50px 0;
 }
@@ -136,6 +136,59 @@ section {
 }
 
 .pricing-text h3 {
-    font-weight: 300;
+    font-weight: 500;
     font-size: 30px;
 }
+
+
+.pricing-text p {
+    margin: 20px 0;
+}
+
+
+.pricing-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.pricing-box {
+    background-color: white;
+    color: black;
+    
+}
+
+.pricing-box-title {
+    background-color: rgb(238, 156, 156);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px rgb(51, 43, 43);
+}
+
+.pricing-box-info {
+    padding: 1rem;
+}
+
+.price-text {
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: brown;
+    font-weight: bold;
+}
+
+.pricing-more-info {
+    display: inline-block;
+    margin: 20px 0;
+    background-color: brown;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
