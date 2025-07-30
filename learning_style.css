@@ -85,3 +85,57 @@ nav a {
     border: none;
     border-radius: 5px;
 }
+
+section {
+    font-family: "Montserrat", sans-serif;
+}
+
+.about {
+    padding: 70px 0;
+    text-align: center;
+    
+}
+
+.about-title {
+    color: brown;
+    font-size: 1.5rem;
+}
+
+.about-desc {
+    color: rgb(104, 103, 103);
+    margin: 15px 0;
+}
+
+.about-con {
+    padding: 0 120px;
+}
+
+.about-img {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    flex-wrap: wrap;
+}
+
+.about-img img {
+    width: 50%;
+    max-width: 45%; /* ปรับขนาดภาพให้อยู่ในบรรทัดเดียวกัน */
+    height: 50%;
+}
+
+.pricing {
+    background-color: rgb(96, 161, 235);
+    color: white;
+    padding: 50px 0;
+}
+
+.pricing-con {
+    text-align: center;
+}
+
+.pricing-text h3 {
+    font-weight: 300;
+    font-size: 30px;
+}
