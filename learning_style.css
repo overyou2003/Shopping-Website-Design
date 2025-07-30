@@ -121,6 +121,7 @@ section {
     flex-wrap: wrap;
 }
 
+
 .about-img img {
     width: 50%;
     max-width: 45%; /* ปรับขนาดภาพให้อยู่ในบรรทัดเดียวกัน */
@@ -159,6 +160,10 @@ section {
     background-color: white;
     color: black;
     
+}
+
+.pricing-box:hover {
+    box-shadow: 0px 4px 10px rgb(240, 163, 163);
 }
 
 .pricing-box-title {
@@ -251,6 +256,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .newslatter-title h3 {
@@ -274,22 +280,47 @@ section {
     padding: 7px;
     border-radius: 7px;
     border: none;
-    width: 300px;
+    width: 400px;
 }
 
 .newslatter-button button {
     padding: 7px;
     border-radius: 7px;
     border: none;
-    width: 150px;
+    width: 180px;
     text-transform: uppercase;
     font-weight: bold;
     color: white;
     background-color: brown;
-
 }
 
-.newslatter-con {
-    width: fit-content;
-    position: relative;
+
+footer {
+    font-family: "Montserrat", sans-serif;
+    background-color: brown;
+    padding: 1rem;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: space-between;
+} 
+
+.footer-menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.footer-menu li {
+    margin-right: 1rem;
+}
+
+.footer-menu ul li a {
+    text-transform: uppercase;
+    font-size: 14px;
 }
