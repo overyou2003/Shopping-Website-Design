@@ -78,6 +78,7 @@ nav:hover {
     display: flex;
     align-items: center;
     margin: 0 10px;
+    position: relative;
 }
 
 .nav-search input {
@@ -107,3 +108,66 @@ nav:hover {
     background-color: rgb(255, 165, 0);
     border-radius: 10px;
 } 
+
+
+.cartcount {
+    position: absolute;
+    top: -12px;
+    right: 65px;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    width: 90vw;
+    background-color: orange;
+    margin: 0 auto;
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: rgb(9, 58, 219);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product {
+    width: 80%;
+    background-color: green;
+    padding: 10px;
+}
+
+.sidebar input {
+    padding: 10px;
+    border: 2px solid transparent;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    background: rgb(243, 237, 237);
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.sidebar input:hover {
+    border: 2px solid orange;
+}
+
+.sidebar-items {
+    background-color: rgb(243, 237, 237);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px rgb(95, 95, 95);
+    text-decoration: none;
+    color: black;
+}
+
+
