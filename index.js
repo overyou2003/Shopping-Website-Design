@@ -44,3 +44,27 @@ function numberWithCommas(x) {
         x = x.replace(pattern, "$1,$2");
     return x;
 }
+
+
+function searchsmth(elem) {
+    // console.log(elem.id);
+    var value = $('#'+elem.id).val();
+    console.log(value);
+
+    var html = '';
+    for (let i = 0 ; i < product.length ; i++) {
+        if (product[i].name.includes(value)) {
+            html += `<div class="product-items ${product[i].type}">
+                        <img src="${product[i].img}" alt="">
+                        <p class="product-name">${product[i].name}</p>
+                        <p class="product-price">${numberWithCommas(product[i].price)} THB</p>
+                    </div>` 
+        }
+    }
+
+    if (html == '') {
+        $("#productlist").html(`<p>Not found product</p>`);
+    } else {
+        $("#productlist").html(html);
+    }
+}
