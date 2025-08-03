@@ -88,7 +88,7 @@ function openProduct(index) {
     product_index = index
     console.log(product_index)
     $("#modalDesc").css("display" , "flex")
-    
+    $("#mdd-img").attr('src' , product[index].img)
 }
 
 function closeModal() {
