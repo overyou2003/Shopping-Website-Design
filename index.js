@@ -125,4 +125,12 @@ function addToCart() {
 
     console.log(cart)
     
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Add ' + product[product_index].name + ' to cart !'
+    })
+
+    $("#cartcount").css('display','flex').text(cart.length)
+    
 }
