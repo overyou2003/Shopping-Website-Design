@@ -157,9 +157,9 @@ function renderCart() {
                             
                         </div>
                         <div class="cart-right">    
-                            <p onclick = "plusandminus('-')" class="btnc">-</p>
-                            <p style="margin: 0 20px; font-size: 1.5rem;">${cart[i].count}</p>
-                            <p onclick = "plusandminus('+')" class="btnc">+</p>
+                            <p onclick = "plusandminus('-' , ${i})" class="btnc">-</p>
+                            <p id="cart-count-item${i}" style="margin: 0 20px; font-size: 1.5rem;">${cart[i].count}</p>
+                            <p onclick = "plusandminus('+' , ${i})" class="btnc">+</p>
                         </div>
                     </div>`
         }
@@ -167,8 +167,26 @@ function renderCart() {
     } else {
         $("#mycart").html('<p>Not found product in your cart</p>')
     }
+}
 
-    
+function plusandminus(action , index) {
+    if(action == '-') {
+        if(cart[index].count > 0) {
+            cart[index].count--;
+            $("#cart-count-item"+index).text(cart[index].count)
+            if(cart[index].count <= 0) {
+                Swal.fire({
+                icon: 'warning',
+                title: 'Are you sure to delete your product?',
+                showConfirmButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                cancelButtonText: 'Cancel'
+                })
+            }
+        }
+    }
+    else if(action == '+') {
 
-
+    }
 }
