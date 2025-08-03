@@ -42,17 +42,17 @@
     <div class="container">
         <div class="sidebar">
             <input onkeyup="searchsmth(this)" id="txt_search" type="text" placeholder="Search something...">
-            <a href="#" class="sidebar-items">
-                Menu1
+            <a onclick="searchproduct('all')" class="sidebar-items">
+                All products
             </a>
-            <a href="#" class="sidebar-items">
-                Menu2
+            <a onclick="searchproduct('phone')" class="sidebar-items">
+                Phone
             </a>
-            <a href="#" class="sidebar-items">
-                Menu3
+            <a onclick="searchproduct('shirt')" class="sidebar-items">
+                Shirt
             </a>
-            <a href="#" class="sidebar-items">
-                Menu4
+            <a onclick="searchproduct('shoe')" class="sidebar-items">
+                Shoe
             </a>
         </div>
         <div id = "productlist" class="product">

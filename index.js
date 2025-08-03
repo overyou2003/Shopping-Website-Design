@@ -68,3 +68,9 @@ function searchsmth(elem) {
         $("#productlist").html(html);
     }
 }
+
+
+function searchproduct(param) {
+    console.log(param)
+    $(".")
+}
