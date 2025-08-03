@@ -61,21 +61,21 @@
 
     </div>
 
-    <div class="modal" style="display: none;">
-        <div class="modal-bg"></div>
+    <div id = "modalDesc" class="modal" style="display: none;">
+        <div onclick = "closeModal()" class="modal-bg"></div>
         <div class="modal-page">
             <h2>Detail</h2><br>
             <div class="modal-content">
-                <div class="modal-content-pic">
+                <div id="mdd-img" class="modal-content-pic">
                     <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                 </div>
                 <div class="modal-content-desc">
-                    <h2>Product Name</h2>
-                    <h3>500 THB</h3><br>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum facere dolor veniam ad iusto explicabo dicta ab repellendus mollitia beatae.</p>
+                    <h2 id="mdd-name">Product Name</h2>
+                    <h3 id="mdd-price">500 THB</h3><br>
+                    <p id="mdd-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum facere dolor veniam ad iusto explicabo dicta ab repellendus mollitia beatae.</p>
                     <br>
                     <div class="btn-control">
-                        <button class="btn">
+                        <button onclick = "closeModal()" class="btn">
                             Close
                         </button>
                         <button class="btn btn-buy">

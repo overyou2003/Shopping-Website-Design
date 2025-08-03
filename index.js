@@ -25,7 +25,7 @@ var product = [{
 $(document).ready(() => {
     var html = '';
     for (let i = 0 ; i < product.length ; i++) {
-        html += `<div class="product-items ${product[i].type}">
+        html += `<div onclick = "openProduct(${i})" class="product-items ${product[i].type}">
                     <img src="${product[i].img}" alt="">
                     <p class="product-name">${product[i].name}</p>
                     <p class="product-price">${numberWithCommas(product[i].price)} THB</p>
@@ -54,7 +54,7 @@ function searchsmth(elem) {
     var html = '';
     for (let i = 0 ; i < product.length ; i++) {
         if (product[i].name.includes(value)) {
-            html += `<div class="product-items ${product[i].type}">
+            html += `<div onclick = "openProduct(${i})" class="product-items ${product[i].type}">
                         <img src="${product[i].img}" alt="">
                         <p class="product-name">${product[i].name}</p>
                         <p class="product-price">${numberWithCommas(product[i].price)} THB</p>
@@ -72,5 +72,25 @@ function searchsmth(elem) {
 
 function searchproduct(param) {
     console.log(param)
-    $(".")
+    $(".product-items").css('display', 'none')
+    if(param == 'all') {
+        $(".product-items").css('display' , 'block')
+    } else {
+        $("." + param).css('display' , "block")
+    }
+
+
+}
+
+
+var product_index = 0;
+function openProduct(index) {
+    product_index = index
+    console.log(product_index)
+    $("#modalDesc").css("display" , "flex")
+    
+}
+
+function closeModal() {
+    $(".modal").css("display" , "none")
 }
