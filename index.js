@@ -152,7 +152,7 @@ function renderCart() {
                             <img src="${cart[i].img}" alt="">
                             <div class="cart-name">
                                 <h2>${cart[i].name}</h2>
-                                <p>${numberWithCommas(cart[i].price * cart[i].count)} THB</p>
+                                <p id="cart-price">${numberWithCommas(cart[i].price * cart[i].count)} THB</p>
                             </div>
                             
                         </div>
@@ -173,6 +173,7 @@ function plusandminus(action , index) {
     if(action == '-') {
         if(cart[index].count > 0) {
             cart[index].count--;
+            $("#cart-price").text(numberWithCommas(cart[index].price * cart[index].count) + ' THB')
             $("#cart-count-item"+index).text(cart[index].count)
             if(cart[index].count <= 0) {
                 Swal.fire({
@@ -182,12 +183,27 @@ function plusandminus(action , index) {
                 showCancelButton: true,
                 confirmButtonText: 'Delete',
                 cancelButtonText: 'Cancel'
+                }).then((res) => { 
+                    if(res.isConfirmed) {
+                        cart.splice(index,1)
+                        console.log(cart)
+                        renderCart();
+                        $("#cartcount").css('display','flex').text(cart.length)
+                        if (cart.length <= 0) {
+                             $("#cartcount").css('display','none')
+                        }
+                    } else if(res.isDismissed){
+                        cart[index].count++;
+                        $("#cart-price").text(numberWithCommas(cart[index].price * cart[index].count) + ' THB')
+                        $("#cart-count-item"+index).text(cart[index].count)
+                    }
                 })
             }
-            
         }
     }
     else if(action == '+') {
-
+        cart[index].count++;
+        $("#cart-price").text(numberWithCommas(cart[index].price * cart[index].count) + ' THB')
+        $("#cart-count-item"+index).text(cart[index].count)
     }
 }
