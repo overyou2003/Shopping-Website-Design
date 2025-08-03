@@ -97,3 +97,26 @@ function openProduct(index) {
 function closeModal() {
     $(".modal").css("display" , "none")
 }
+
+
+var cart = [];
+function addToCart() {
+    var pass = true;
+    
+    for (let index = 0; index < cart.length; index++) {
+        
+    }
+
+    if (pass) {
+        var obj = {
+            index: product_index,
+            id: product[product_index].id,
+            name: product[product_index].name,
+            price: product[product_index].price,
+            img: product[product_index].img,
+            count: 1
+        };
+    }
+
+    console.log(obj)
+}
