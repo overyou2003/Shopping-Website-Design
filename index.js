@@ -134,3 +134,41 @@ function addToCart() {
     $("#cartcount").css('display','flex').text(cart.length)
     
 }
+
+
+
+function openCart() {
+    $("#modalCart").css('display' , 'flex')
+    renderCart();
+}
+
+
+function renderCart() {
+    if(cart.length > 0) {
+        var html = '';
+        for (let i = 0; i < cart.length; i++) {
+            html += `<div class="cart-item">
+                        <div class="cart-left">
+                            <img src="${cart[i].img}" alt="">
+                            <div class="cart-name">
+                                <h2>${cart[i].name}</h2>
+                                <p>${numberWithCommas(cart[i].price * cart[i].count)} THB</p>
+                            </div>
+                            
+                        </div>
+                        <div class="cart-right">    
+                            <p onclick = "plusandminus('-')" class="btnc">-</p>
+                            <p style="margin: 0 20px; font-size: 1.5rem;">${cart[i].count}</p>
+                            <p onclick = "plusandminus('+')" class="btnc">+</p>
+                        </div>
+                    </div>`
+        }
+        $("#mycart").html(html);
+    } else {
+        $("#mycart").html('<p>Not found product in your cart</p>')
+    }
+
+    
+
+
+}
