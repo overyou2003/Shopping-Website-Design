@@ -184,6 +184,7 @@ function plusandminus(action , index) {
                 cancelButtonText: 'Cancel'
                 })
             }
+            
         }
     }
     else if(action == '+') {
