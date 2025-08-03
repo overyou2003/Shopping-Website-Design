@@ -103,8 +103,12 @@ var cart = [];
 function addToCart() {
     var pass = true;
     
-    for (let index = 0; index < cart.length; index++) {
-        
+    for (let i = 0; i < cart.length; i++) {
+        if(product_index == cart[i].index) {
+            console.log('found same product')
+            cart[i].count++
+            pass = false
+        }
     }
 
     if (pass) {
@@ -116,7 +120,9 @@ function addToCart() {
             img: product[product_index].img,
             count: 1
         };
+        cart.push(obj)
     }
 
-    console.log(obj)
+    console.log(cart)
+    
 }
