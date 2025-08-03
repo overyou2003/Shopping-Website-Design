@@ -202,6 +202,7 @@ nav:hover {
 
 .product-price {
     font-size: 1.25rem;
+    
 }
 
 .modal,
@@ -234,7 +235,6 @@ nav:hover {
 }
 
 .modal-content-desc {
-    
     padding: 0 20px;
 }
 
@@ -253,6 +253,10 @@ nav:hover {
 
 .modal-content-desc p {
     color: gray;
+}
+
+.modal-content-desc h3 {
+    font-weight: 400;
 }
 
 .btn-control {
