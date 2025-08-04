@@ -35,10 +35,10 @@ nav {
 .nav-logo a{
     color: rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 30px;
+    font-size: 27px;
     line-height: 30px;
     font-weight: bold;
-    letter-spacing: 1.8px;
+    letter-spacing: 0.8px;
 }
 
 .nav-logo img {
@@ -107,7 +107,7 @@ nav:hover {
     color: white;
     padding: 0 5px;
     font-weight: bold;
-    letter-spacing: 1.75px;
+    letter-spacing: 3.5px;
     background-color: rgb(255, 165, 0);
     border-radius: 10px;
 } 
