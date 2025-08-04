@@ -272,13 +272,25 @@ nav:hover {
     border-radius: 10px;
     font-size: 1.2rem;
     transition: 0.3s;
+    font-weight: bold;
 }
 
-.btn-buy {
-    background: linear-gradient(125deg , rgb(255, 136, 0) , rgb(255, 0, 0)); 
+.btn:hover {
+    background-color: red;
     color: white;
+}
+
+
+.btn-buy {
+    
+    background: linear-gradient(125deg , rgb(255, 136, 0) , rgb(255, 0, 0));
+    color: rgb(255, 255, 255);
     margin-left: 10px;
     font-weight: bold;
+}
+
+.btn-buy:hover {
+    /* background: green; */
 }
 
 .cart-item {
