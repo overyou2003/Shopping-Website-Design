@@ -224,3 +224,7 @@ function plusandminus(action , index) {
         $("#cart-count-item"+index).text(cart[index].count)
     }
 }
+
+function buynow() {
+
+}
