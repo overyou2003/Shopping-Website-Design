@@ -6,8 +6,7 @@
             $object = new stdClass();
             $amount = 0;
             $product = $_POST['product'];
-
-            $stmt = $object->prepare('select id,price from sp_product order by desc')
+            $stmt = $db->prepare('select id,price from sp_product order by id desc');
             if($stmt->execute()) {
                 $queryproduct = array();
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -21,11 +20,17 @@
 
                 for($i=0 ; $i < count($product) ; $i++) {
                     for ($k=0; $k < count($queryproduct) ; $k++) { 
-                        if($product[$i]['id'] == $queryproduct[$k]['id']) {
-                            $amount += $product[$i]['count']*$queryproduct[$k]['price']
+                        if(intval($product[$i]['id']) == intval($queryproduct[$k]['id'])) {
+                            $amount += intval($product[$i]['count'])*intval($queryproduct[$k]['price']);
+                            break;
                          }
                     }
                 }
+                
+                $object->RespCode = 200;
+                $object->Amount = $amount;
+                echo json_encode($object);
+                http_response_code(200);
             }
              
         } else {

@@ -226,5 +226,15 @@ function plusandminus(action , index) {
 }
 
 function buynow() {
-
+    $.ajax({
+        method: 'post',
+        url: './api/buynow.php',
+        data: {
+            product: cart
+        }, success: function(response) {
+            console.log(response)
+        }, error: function(err) {
+            console.log(err)
+        }
+    })
 }
