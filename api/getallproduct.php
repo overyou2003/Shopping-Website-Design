@@ -36,7 +36,7 @@
                 $object->RespCode = 500;
                 $object->Log = 1;
                 $object->RespMessage = 'bad : bad sql';
-                http_response_code(500);
+                http_response_code(400);
             }
         } else {
             http_response_code(405);

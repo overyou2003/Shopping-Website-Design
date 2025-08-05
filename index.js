@@ -1,26 +1,27 @@
-var product = [{
-    id: 1,
-    img: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    name: 'Iphone',
-    price: 16000,
-    description: 'Iphone Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum non repellendus earum libero reprehenderit.',
-    type: 'phone'
-} , {
-    id: 2,
-    img: 'https://images.unsplash.com/photo-1511746315387-c4a76990fdce?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    name: 'Adidas Shirt',
-    price: 1500,
-    description: 'Adidas shirt Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum non repellendus earum libero reprehenderit.',
-    type: 'shirt'
-} , {
-    id: 3,
-    img: 'https://images.unsplash.com/photo-1611510338559-2f463335092c?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    name: 'Nike Shoe',
-    price: 5000,
-    description: 'Nike Shoe Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum non repellendus earum libero reprehenderit.',
-    type: 'shoe'
-}];
+// var product = [{
+//     id: 1,
+//     img: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+//     name: 'Iphone',
+//     price: 16000,
+//     description: 'Iphone Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum non repellendus earum libero reprehenderit.',
+//     type: 'phone'
+// } , {
+//     id: 2,
+//     img: 'https://images.unsplash.com/photo-1511746315387-c4a76990fdce?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+//     name: 'Adidas Shirt',
+//     price: 1500,
+//     description: 'Adidas shirt Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum non repellendus earum libero reprehenderit.',
+//     type: 'shirt'
+// } , {
+//     id: 3,
+//     img: 'https://images.unsplash.com/photo-1611510338559-2f463335092c?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+//     name: 'Nike Shoe',
+//     price: 5000,
+//     description: 'Nike Shoe Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ipsum non repellendus earum libero reprehenderit.',
+//     type: 'shoe'
+// }];
 
+var product;
 
 $(document).ready(() => {
 
@@ -29,20 +30,25 @@ $(document).ready(() => {
         url: './api/getallproduct.php',
         success: function(response) {
             console.log(response)
+            if(response.RespCode == 200) {
+
+                product = response.Result;
+                var html = '';
+                for (let i = 0 ; i < product.length ; i++) {
+                    html += `<div onclick = "openProduct(${i})" class="product-items ${product[i].type}">
+                                <img src="./img/${product[i].img}" alt="">
+                                <p class="product-name">${product[i].name}</p>
+                                <p class="product-price">${numberWithCommas(product[i].price)} THB</p>
+                            </div>` 
+                }
+                $("#productlist").html(html);
+            }
         } , error: function(err) {
             console.log(err)
         }
     })
 
-    var html = '';
-    for (let i = 0 ; i < product.length ; i++) {
-        html += `<div onclick = "openProduct(${i})" class="product-items ${product[i].type}">
-                    <img src="${product[i].img}" alt="">
-                    <p class="product-name">${product[i].name}</p>
-                    <p class="product-price">${numberWithCommas(product[i].price)} THB</p>
-                </div>` 
-    }
-    $("#productlist").html(html);
+    
 })
 
 
@@ -66,7 +72,7 @@ function searchsmth(elem) {
     for (let i = 0 ; i < product.length ; i++) {
         if (product[i].name.includes(value)) {
             html += `<div onclick = "openProduct(${i})" class="product-items ${product[i].type}">
-                        <img src="${product[i].img}" alt="">
+                        <img src="./img/${product[i].img}" alt="">
                         <p class="product-name">${product[i].name}</p>
                         <p class="product-price">${numberWithCommas(product[i].price)} THB</p>
                     </div>` 
@@ -99,7 +105,7 @@ function openProduct(index) {
     product_index = index
     console.log(product_index)
     $("#modalDesc").css("display" , "flex")
-    $("#mdd-img").attr('src' , product[index].img)
+    $("#mdd-img").attr('src' , './img/' + product[index].img)
     $("#mdd-name").text(product[index].name)
     $("#mdd-price").text(numberWithCommas(product[index].price) + ' THB')
     $("#mdd-desc").text(product[index].description)
@@ -160,7 +166,7 @@ function renderCart() {
         for (let i = 0; i < cart.length; i++) {
             html += `<div class="cart-item">
                         <div class="cart-left">
-                            <img src="${cart[i].img}" alt="">
+                            <img src="./img/${cart[i].img}" alt="">
                             <div class="cart-name">
                                 <h2>${cart[i].name}</h2>
                                 <p id="cart-price">${numberWithCommas(cart[i].price * cart[i].count)} THB</p>
