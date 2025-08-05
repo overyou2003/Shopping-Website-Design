@@ -13,11 +13,12 @@
                     $object->Result = array();
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                         extract($row);
-                        $items = array(
-                            "thisisname" => $name,
-                            "thisisprice" => $price,
-                        );
-                        array_push($object->Result , $items);
+                        // $items = array(
+                        //     "thisisname" => $name,
+                        //     "thisisprice" => $price,
+                        // );
+                        // array_push($object->Result , $items);
+                        array_push($object->Result , $row);
                     }
                     $object->RespCode = 200;
                     $object->RespMessage = 'success';
@@ -29,7 +30,7 @@
                     http_response_code(400);
                 }
 
-                echo json_encode($object);
+                echo json_encode($object, JSON_PRETTY_PRINT);
 
             } else {
                 $object->RespCode = 500;
