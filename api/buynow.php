@@ -41,6 +41,11 @@
                 ])) {
                     $object->RespCode = 200;
                     $object->RespMessage = 'success';
+                    $object->Amount = new stdClass();
+                    $object->Amount->Amount = $amount;
+                    $object->Amount->Shipping = $shipping;
+                    $object->Amount->Vat =$vat;
+                    $object->Amount->Netamount = $netamount;
                     http_response_code(200);
                 } else {
                     $object->RespCode = 300;

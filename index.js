@@ -1,3 +1,4 @@
+
 // var product = [{
 //     id: 1,
 //     img: 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -50,7 +51,6 @@ $(document).ready(() => {
 
     
 })
-
 
 
 
@@ -112,6 +112,7 @@ function openProduct(index) {
 }
 
 function closeModal() {
+    console.log("HELLO");
     $(".modal").css("display" , "none")
 }
 
@@ -226,15 +227,34 @@ function plusandminus(action , index) {
 }
 
 function buynow() {
+    console.log("🔥 BUYNOW CLICKED");
     $.ajax({
         method: 'post',
         url: './api/buynow.php',
         data: {
             product: cart
         }, success: function(response) {
-            console.log(response)
+            //console.log(response)
+            //console.log("Hello");
+            if(response.RespCode == 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thank you',
+                    html: `<p> Amount : ${response.Amount.Amount}</p>`
+                })
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Something is went wrong'
+                })
+            }
         }, error: function(err) {
             console.log(err)
         }
     })
+}
+
+
+function test() {
+    console.log("HELLO")
 }
