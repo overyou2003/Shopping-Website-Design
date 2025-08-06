@@ -240,7 +240,17 @@ function buynow() {
                 Swal.fire({
                     icon: 'success',
                     title: 'Thank you',
-                    html: `<p> Amount : ${response.Amount.Amount}</p>`
+                    html: ` <p> Amount : ${response.Amount.Amount}</p>
+                            <p> Shipping : ${response.Amount.Shipping}</p>
+                            <p> Vat : ${response.Amount.Vat}</p>
+                            <p> NetAmount : ${response.Amount.Netamount}</p>
+                            `
+                }).then((res) => {
+                    if(res.isConfirmed) {
+                        cart = [];
+                        closeModal();
+                        $("#cartcount").css('display' , 'none')
+                    }
                 })
             } else {
                 Swal.fire({
