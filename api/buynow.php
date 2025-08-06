@@ -26,12 +26,35 @@
                          }
                     }
                 }
-                
-                $object->RespCode = 200;
-                $object->Amount = $amount;
-                echo json_encode($object);
-                http_response_code(200);
+
+                $shipping = $amount + 60;
+                $vat = $shipping * 7 / 100;
+                $netamount = $shipping + $vat;
+                $transid = round(microtime(true) * 1000);
+                $product = json_encode($product);
+                $mil = time()*1000;
+                $updated_at = date("Y-m-d h:i:sa");
+
+                $stmt = $db->prepare('insert into sp_transaction (transid,orderlist,amount,shipping,vat,netamount,operation,mil,updated_at) values (?,?,?,?,?,?,?,?,?) ');
+                if($stmt->execute ([
+                    $transid , $product , $amount , $shipping , $vat , $netamount , 'PENDING' , $mil , $updated_at
+                ])) {
+                    $object->RespCode = 200;
+                    $object->RespMessage = 'success';
+                    http_response_code(200);
+                } else {
+                    $object->RespCode = 300;
+                    $object->Log = 0;
+                    $object->RespMessage = 'bad : insert transaction fail';
+                    http_response_code(300);
+                }   
+            } else {
+                $object->RespCode = 500;
+                $object->Log = 1;
+                $object->RespMessage = 'bad : cant get product';
+                http_response_code(500);
             }
+            echo json_encode($object);
              
         } else {
             http_response_code(405);
